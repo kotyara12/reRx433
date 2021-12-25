@@ -211,8 +211,8 @@ static void IRAM_ATTR rxIsrHandler(void* arg)
               reciever_data_t data;
               data.source = RTM_RX433;
               data.address = i;
-              data.length = rx433_GetReceivedBitLength();
               data.value = rx433_GetReceivedValue();
+              data.count = rx433_GetReceivedBitLength();
               // reset recieved value
               rx433_ResetAvailable();
               // we have not woken a task at the start of the ISR
