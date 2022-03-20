@@ -208,10 +208,10 @@ static void IRAM_ATTR rxIsrHandler(void* arg)
             // receive succeeded for protocol i, post data to external queue
             QueueHandle_t queueProc = (QueueHandle_t)arg;
             if (queueProc) {
-              reciever_data_t data;
-              data.source = RTM_RX433;
-              data.address = i;
-              data.value = rx433_GetReceivedValue();
+              input_data_t data;
+              data.source = IDS_RX433;
+              data.rx433.protocol = i;
+              data.rx433.value = rx433_GetReceivedValue();
               data.count = rx433_GetReceivedBitLength();
               // reset recieved value
               rx433_ResetAvailable();
@@ -251,7 +251,7 @@ void rx433_Init(const uint8_t gpioRx, QueueHandle_t queueProc)
   
   rlog_i(logTAG, "Initialization of 433MHz receiver on gpio #%d", _gpioRx);
 
-  ERR_CHECK(gpio_install_isr_service(0), "Failed to install ISR service");
+  // ERR_CHECK(gpio_install_isr_service(0), "Failed to install ISR service");
 
   gpio_pad_select_gpio(_gpioRx);
   ERR_CHECK(gpio_set_direction(_gpioRx, GPIO_MODE_INPUT), ERR_GPIO_SET_MODE);
