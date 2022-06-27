@@ -1,0 +1,17 @@
+{
+  "name": "reRx433",
+  "version": "3.0.0",
+  "description": "Module for receiving data from wireless sensors 433MHz. Based on https://github.com/sui77/rc-switch",
+  "keywords": "rx433",
+  "authors":
+  [
+    {
+      "name": "Alexander Razzhivin",
+      "email": "kotyara12@yandex.ru",
+      "url": "https://kotyara12.ru"
+    }
+  ],
+  "license": "MIT",
+  "frameworks": ["arduino", "espidf"],
+  "platforms": ["espressif32"]
+}

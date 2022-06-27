@@ -9,9 +9,6 @@
 
 static const char* logTAG = "RX433";
 
-TaskHandle_t _rxTask;
-QueueHandle_t _rxQueue = nullptr;
-
 #define ERR_CHECK(err, str) if (err != ESP_OK) rlog_e(logTAG, "%s: #%d %s", str, err, esp_err_to_name(err));
 #define ERR_GPIO_SET_MODE "Failed to set GPIO mode"
 #define ERR_GPIO_SET_ISR  "Failed to set ISR handler"
