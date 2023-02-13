@@ -1,6 +1,6 @@
 {
   "name": "reRx433",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Module for receiving data from wireless sensors 433MHz. Based on https://github.com/sui77/rc-switch",
   "keywords": "rx433",
   "authors":

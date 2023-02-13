@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "time.h"
 #include "esp_err.h"
+#include "esp_timer.h"
 #include <driver/gpio.h>
 #include "rLog.h"
 #include "rTypes.h"
@@ -250,7 +251,7 @@ void rx433_Init(const uint8_t gpioRx, QueueHandle_t queueProc)
 
   // ERR_CHECK(gpio_install_isr_service(0), "Failed to install ISR service");
 
-  gpio_pad_select_gpio(_gpioRx);
+  gpio_reset_pin(_gpioRx);
   ERR_CHECK(gpio_set_direction(_gpioRx, GPIO_MODE_INPUT), ERR_GPIO_SET_MODE);
   ERR_CHECK(gpio_set_pull_mode(_gpioRx, GPIO_FLOATING), ERR_GPIO_SET_MODE);
   ERR_CHECK(gpio_set_intr_type(_gpioRx, GPIO_INTR_ANYEDGE), ERR_GPIO_SET_ISR);
